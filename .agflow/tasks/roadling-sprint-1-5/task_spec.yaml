@@ -1,0 +1,28 @@
+task_id: roadling-sprint-1-5
+title: AI-native OTA Experience Refactor
+task_weight: heavy
+scope:
+  - conversational intake backed by a structured TripIntent
+  - server-side Gemini structured-output route with safe failure behavior
+  - dynamic intent summary and minimum-viable-intent gate
+  - immersive discovery routes and modern OTA trip presentation
+  - persistent Copilot routed through validated Trip Engine commands
+  - Gemini architecture, environment, tests, review, and validation artifacts
+out_of_scope:
+  - reality-event execution, DRM, live maps, live suppliers, weather, payments, auth, deployment
+preserved_invariants:
+  - structured Trip state and immutable revisions
+  - deterministic Trip State Engine owns all mutations
+  - mock catalog provenance remains explicit
+acceptance_criteria:
+  - natural language is the primary landing-page input
+  - multi-turn messages merge rather than overwrite confirmed intent
+  - unresolved fields stay null and one useful follow-up is asked per turn
+  - Gemini runs server-side via GEMINI_API_KEY and structured output
+  - minimum viable intent gates trip generation
+  - generated trip is an immersive OTA experience and retains the Golden Path
+  - Copilot change interpretation produces a validated command executed by Trip Engine
+  - AI failures preserve intent and surface retry without fabricated results
+  - tests, lint, build, Harness review, and validation pass
+quality_gate: full-test
+status: completed

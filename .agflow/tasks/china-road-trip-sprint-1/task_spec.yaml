@@ -1,0 +1,19 @@
+task_id: china-road-trip-sprint-1
+title: China Inbound Self-Drive Vertical Slice
+task_weight: heavy
+scope:
+  - project documentation and domain model
+  - structured mock travel catalog
+  - German-couple Yunnan nine-day Golden Path
+  - state-changing relaxed-driving Copilot action
+  - Harness review and full validation
+out_of_scope:
+  - production suppliers, payment, auth, permit filing, DRM runtime, deployment
+acceptance_criteria:
+  - interactive preference form generates a structured Trip
+  - route, vehicle, stays, experiences, permit and price are visible
+  - Copilot preview and apply mutate affected objects and revision
+  - all mock data is visibly isolated
+  - harness full gate passes
+quality_gate: full-test
+status: ready_for_handoff

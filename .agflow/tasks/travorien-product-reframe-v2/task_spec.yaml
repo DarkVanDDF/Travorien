@@ -1,0 +1,48 @@
+task_id: travorien-product-reframe-v2
+title: Product Reframe / Consumer Experience V2
+task_weight: heavy
+reasoning_effort: xhigh
+product_positioning: AI Self-Drive Travel Service and Road Trip Operating Platform for inbound travelers in China
+consumer_promise: Drive China Your Way
+pillars:
+  - discover
+  - plan_and_book
+  - drive
+scope:
+  - replace the transaction-first landing with a discovery-led China road-trip experience
+  - introduce five structured SignatureDrive products and browsable drive detail pages
+  - add structured Guides across road trips, driving in China, destinations, and inspiration
+  - add a source-bound DrivingReadiness checker that fails to UNKNOWN when evidence is insufficient
+  - reframe Gemini planning as knowledge-grounded travel consultation and drive comparison
+  - connect inspiration-first, AI-first, and readiness-first entry journeys to one personalized planning and commerce flow
+  - make vehicle and hotel recommendations explain route-specific self-drive fit
+  - present the existing Reality Runtime through a consumer My Drive experience
+  - curate non-duplicated primary drive media with explicit public-source provenance
+  - complete browser UX review, xhigh product review, tests, docs, and Harness validation
+out_of_scope:
+  - durable supplier infrastructure, real inventory, production booking, payment, accounts, or deployment
+  - live weather, flight, vehicle, hotel, permit filing, map, navigation, or DRM authority
+  - replacing Trip State, VehicleOffer, VehicleBooking, HotelOffer, Trip Engine, revisions, or Reality Runtime
+  - making all content-layer Signature Drives transaction-ready in the Yunnan demo graph
+preserved_invariants:
+  - Trip and PlanningSession remain structured, immutable, and revisioned
+  - Gemini may advise and explain but cannot invent authoritative route, policy, inventory, price, availability, or booking facts
+  - only deterministic project code can create routes, commerce snapshots, bookings, Trip mutations, or Runtime decisions
+  - all catalog commerce remains explicitly demo-mock
+  - policy content carries verification status, last-verified date, and source provenance
+  - historical Sprint artifacts and reusable Harness Core remain unchanged
+acceptance_criteria:
+  - homepage explains China self-drive travel within the first viewport and does not force a transaction
+  - Explore, Road Trips, Driving in China, Guides, Plan with AI, and My Drive have clear responsibilities
+  - five unique Signature Drives have structured content and non-duplicated hero media
+  - Yunnan has a complete product page with journey, driving, seasons, stays, experiences, variants, and AI customization
+  - driving-policy content uses official current sources and unknown cases fail closed
+  - AI can compare Yunnan and western Sichuan, explain trade-offs, preserve context, and switch to Hainan without stale intent
+  - inspiration-first, AI-first, and readiness-first journeys converge on the existing Yunnan commerce flow
+  - vehicle and hotel recommendation copy and ranking use journey/self-drive context
+  - a ready product journey enters the existing consumer My Drive and Reality Runtime
+  - SignatureDrive, advisor, readiness, ranking, entry-path, media, and Runtime tests pass
+  - browser UX and final xhigh product review pass after confirmed remediation
+  - npm run harness:full passes
+quality_gate: full-test
+status: complete

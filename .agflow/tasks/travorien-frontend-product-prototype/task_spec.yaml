@@ -1,0 +1,34 @@
+task_id: travorien-frontend-product-prototype
+title: Travorien Frontend Product Prototype Sprint
+task_weight: heavy
+reasoning_effort: high
+final_review_reasoning_effort: xhigh
+mode: product-prototype
+consumer_promise: Drive China Your Way
+value_pillars:
+  - confidence
+  - discovery
+  - support
+scope:
+  - rebuild the homepage around a co-primary AI travel advisor and interactive China map
+  - establish driving readiness confidence in the first viewport
+  - make live Gemini status and demo guidance visibly distinct
+  - share one journey state between chat and map
+  - add playable map editing, Surprise Me, and route insight interactions
+  - provide a map-first mobile advisor bottom sheet
+  - preserve the existing journey-aware vehicle, hotel, Trip, and Reality Runtime flows
+out_of_scope:
+  - databases, durable state, production persistence, concurrency, or event sourcing
+  - production supplier APIs, payment, booking, permit filing, or navigation authority
+  - microservices, complicated repositories, recommendation infrastructure, or DRM expansion
+acceptance_criteria:
+  - first viewport makes China self-drive, driving readiness, AI, and map discovery evident within 30 seconds
+  - map supports add, select, remove, reorder, undo, and clear on desktop and mobile
+  - chat and map use one state and can change one another through validated actions
+  - Surprise Me ranks attractive demo destinations and updates the map
+  - route insight explains feasibility, difficulty, and wow factor with explicit provenance
+  - live Gemini is tested and failures are shown honestly without a disguised fallback
+  - required traveler scenarios and responsive browser review pass
+  - existing core tests, strict TypeScript, lint, build, and Harness validation pass
+quality_gate: full-test
+status: complete

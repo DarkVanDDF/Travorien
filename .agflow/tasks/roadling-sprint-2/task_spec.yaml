@@ -1,0 +1,31 @@
+task_id: roadling-sprint-2
+title: Reality Event Operating Loop
+task_weight: heavy
+scope:
+  - canonical demo-mock RealityEvent lifecycle
+  - deterministic impact assessment against structured Trip objects
+  - three executable candidate plans with risk, time, price, and experience tradeoffs
+  - user-confirmed application through the existing Trip State Engine
+  - immutable Trip revision, TripChange diffs, and TripDecision audit record
+  - OTA-native event alert, plan comparison, and What Changed presentation
+  - tests, documentation, review, and Harness validation
+out_of_scope:
+  - live weather, live road or map APIs, suppliers, payment, auth, automatic execution, DRM learning, multi-agent runtime
+preserved_invariants:
+  - RealityEvent, ImpactAssessment, CandidatePlan, TripChange, and TripDecision stay separate
+  - AI may parse or explain but never determines affected objects or mutates Trip
+  - every mutation is explicit, typed, validated, deterministic, and immutable
+  - all event, catalog, route, rule, and price data remains demo-mock
+acceptance_criteria:
+  - the Yunnan Golden Trip receives an active heavy-rainfall demo event
+  - deterministic matching identifies affected routes, experience, days, and stay
+  - KEEP, SKIP, and REROUTE plans contain distinct executable command arrays
+  - generating plans leaves the original Trip reference and values unchanged
+  - no plan applies before explicit user selection
+  - a selected valid plan creates exactly one new revision and auditable diffs
+  - invalid commands are rejected as a reference-equal no-op
+  - trip response does not resolve or dismiss the underlying event
+  - the complete loop works without Gemini
+  - required tests, lint, production build, and Harness full validation pass
+quality_gate: full-test
+status: completed

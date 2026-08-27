@@ -1,0 +1,8 @@
+task_id: ""
+title: ""
+task_weight: standard
+scope: []
+out_of_scope: []
+acceptance_criteria: []
+quality_gate: framework-gate
+status: drafted

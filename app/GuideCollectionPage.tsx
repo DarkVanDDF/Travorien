@@ -1,0 +1,5 @@
+/* eslint-disable @next/next/no-img-element -- curated public-source imagery is rendered with visible provenance. */
+import ProductNav, { ProductBrand } from "./ProductNav.tsx";
+import { guides } from "./data/knowledge-catalog.ts";
+
+export default function GuideCollectionPage() { return <main className="guide-collection"><ProductNav /><header><p className="v2-overline">Travorien field guides</p><h1>Know the road.<br />Want the journey.</h1><p>Practical driving knowledge sits beside road-trip inspiration—with verified claims clearly separated from editorial demo-content.</p></header><section>{guides.map((guide) => <article key={guide.id}><img src={guide.heroMedia.imageUrl} alt={guide.heroMedia.alt} /><div><small>{guide.category.replaceAll("-", " ")} · {guide.readingMinutes} min</small><h2>{guide.title}</h2><p>{guide.standfirst}</p><a href={`/guides/${guide.slug}`}>Read the guide →</a></div></article>)}</section><footer className="product-footer"><ProductBrand /><p>Guides that show their sources.</p><a href="/driving-in-china">Check driving readiness</a></footer></main>; }

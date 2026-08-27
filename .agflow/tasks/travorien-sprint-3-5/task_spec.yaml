@@ -1,0 +1,44 @@
+task_id: travorien-sprint-3-5
+title: Consumer Demo Rebuild
+task_weight: heavy
+reasoning_effort: xhigh
+scope:
+  - complete user-visible legacy-brand to Travorien product rebrand
+  - AI-first multi-turn consumer conversation backed by server-only Gemini
+  - revisioned PlanningSession with deterministic stage transitions
+  - catalog-graph route planning for more than the Golden itinerary
+  - separate vehicle offer, selection, and idempotent demo reservation contracts
+  - optional hotel cross-sell, offer ranking, and selection
+  - final structured Trip materialization compatible with the existing Reality Runtime
+  - destination and vehicle media catalogs with explicit public-source provenance
+  - graceful AI failure plus a deterministic demo-conversation path through the same engines
+  - tests, documentation, product walkthrough, independent xhigh review, remediation, and Harness validation
+out_of_scope:
+  - live supplier, map, flight, hotel, vehicle, payment, permit, account, or deployment APIs
+  - production booking, payment capture, durable sessions, authentication, or real availability
+  - workflow engines, agent loops, tool-calling planners, provider-framework generalization, or DRM learning
+preserved_invariants:
+  - Trip remains structured state and the Trip Engine remains the only Trip mutation authority
+  - Gemini may converse, extract intent, and propose catalog destination IDs but cannot set stage, price, availability, booking status, or Trip mutations
+  - PlanningSession changes are immutable, revisioned, and reject stale asynchronous responses
+  - route, offer, booking, hotel, price, and media records are project-local demo-mock data
+  - vehicle product, offer, selection, and booking remain distinct
+  - all selected routes pass catalog-graph and itinerary-continuity validation
+  - reusable Harness Core and historical Sprint artifacts remain unchanged
+acceptance_criteria:
+  - empty Travorien AI conversation is the default entry and Golden brief is not required
+  - bounded recent conversation history, current stage, and intent reach Gemini server-side
+  - deterministic project code owns stage transitions and every authoritative commerce value
+  - Dali five-day solo and Kunming family examples produce distinct non-Golden route plans
+  - unknown, disconnected, reverse-only, repeated, or over-limit route proposals are rejected or deterministically bridged only through catalog edges
+  - compact, sedan, SUV, and premium vehicle offers rank against travelers, luggage, budget, parking, and mountain context
+  - forged or stale vehicle offers cannot be reserved and duplicate reservation is idempotent
+  - a confirmed vehicle leads to an explicit hotel yes-or-skip branch
+  - hotel offers are night, date, destination, and snapshot bound; final selections remain coherent with Trip days
+  - final conversation-built Trips enter the existing Reality Runtime without conversion to Golden
+  - AI failure preserves the exact planning state and the labeled demo path uses the same engines
+  - no current user-visible product surface or current formal product doc uses the legacy brand
+  - media is accurate, non-repeated for distinct itinerary stops, and carries source, author, and license notes
+  - regression, new adversarial tests, lint, production build, and npm run harness:full pass
+quality_gate: full-test
+status: completed

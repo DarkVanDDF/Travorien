@@ -1,0 +1,41 @@
+{
+  "task_id": "roadling-sprint-2",
+  "status": "completed",
+  "changed_files": [
+    ".agflow/tasks/roadling-sprint-2/task_spec.yaml",
+    ".agflow/tasks/roadling-sprint-2/work_result.json",
+    ".agflow/tasks/roadling-sprint-2/review_report.json",
+    ".agflow/tasks/roadling-sprint-2/validation_report.md",
+    ".agflow/lessons/cross-cutting.md",
+    "AGENTS.md",
+    "HARNESS.md",
+    "app/domain.ts",
+    "app/reality-engine.ts",
+    "app/trip-engine.ts",
+    "app/data/mock-data.ts",
+    "app/RoadTripApp.tsx",
+    "app/globals.css",
+    "tests/reality-engine.test.mjs",
+    "tests/trip-state.test.mjs",
+    "package.json",
+    "docs/PRODUCT.md",
+    "docs/DOMAIN_MODEL.md",
+    "docs/ARCHITECTURE.md",
+    "docs/DEMO_SCENARIO.md",
+    "docs/DECISIONS.md"
+  ],
+  "verification": [
+    "npm run harness:full — passed",
+    "24 node tests — passed",
+    "ESLint — passed with zero warnings or errors",
+    "Vinext production build — passed",
+    "Local route — HTTP 200",
+    "Independent review repair — same-ID altered plans now rejected and decision snapshots retained"
+  ],
+  "known_risks": [
+    "Rainfall, route conditions, time deltas, and prices are demo-mock and must not be presented as live guidance.",
+    "The Golden candidate generator targets the fixed Day 7/8 Yunnan scenario; generalized event types remain future work.",
+    "TripDecision records choice snapshots but outcome observation and learning are intentionally absent."
+  ],
+  "scope_deviations": []
+}

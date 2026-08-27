@@ -1,0 +1,26 @@
+{
+  "task_id": "china-road-trip-sprint-1",
+  "status": "completed",
+  "changed_files": [
+    "AGENTS.md",
+    "HARNESS.md",
+    "docs/",
+    ".agflow/",
+    "app/domain.ts",
+    "app/data/mock-data.ts",
+    "app/trip-engine.ts",
+    "app/RoadTripApp.tsx",
+    "app/globals.css",
+    "tests/trip-state.test.mjs"
+  ],
+  "verification": [
+    "npm run harness:doctor",
+    "npm run harness:full",
+    "HTTP 200 local preview"
+  ],
+  "known_risks": [
+    "Single supported Copilot intent by Sprint design",
+    "All travel inventory, prices, timing, rules, and events are mock data"
+  ],
+  "scope_deviations": []
+}

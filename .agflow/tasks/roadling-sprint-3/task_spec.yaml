@@ -1,0 +1,41 @@
+task_id: roadling-sprint-3
+title: Generalized Reality Runtime
+task_weight: heavy
+reasoning_effort: xhigh
+scope:
+  - RawRealitySignal input layer with mock, manual-demo, and static-demo-feed adapters
+  - compiler registry producing versioned canonical RealityEvent objects
+  - impact-rule registry for weather, road closure, hotel availability, and arrival delay
+  - candidate-policy registry producing authoritative revision-bound CandidatePlan objects
+  - deterministic Trip Engine support for day, risk, and booking commands
+  - minimal multi-event isolation, event updates, outcome observations, and consumer timeline
+  - local-only Trip Operations demonstration with optional Gemini manual interpretation
+  - tests, documentation, independent xhigh review, remediation, and Harness validation
+out_of_scope:
+  - live weather, road, map, flight, hotel, vehicle, payment, or authority APIs
+  - production deployment, accounts, durable storage, automatic execution, or policy learning
+  - DRM runtime, TemporalBallot, RealityCoupling, event sourcing, CQRS, workflow engines, or cross-event optimization
+preserved_invariants:
+  - Signal, Event, Impact, Plan, Decision, Change, and Outcome remain distinct
+  - Gemini may extract a structured signal but never determines impact, plans, price, or mutation
+  - Trip Engine remains the only itinerary mutation authority
+  - selected candidates are revision-bound and authoritatively regenerated before atomic application
+  - structured demo signals run without Gemini
+  - all event, route, hotel, booking, price, and timing data remains demo-mock
+  - reusable Harness Core remains business-agnostic and unchanged
+acceptance_criteria:
+  - RawRealitySignal and RealitySignalAdapter contracts exist
+  - mock, manual, and static-feed adapters produce raw signals
+  - compiler registry supports WEATHER_RISK, ROAD_CLOSURE, HOTEL_UNAVAILABLE, and FLIGHT_DELAY
+  - four event types affect distinct structured Trip objects through registered rules
+  - generic route, hotel, and arrival policies avoid event-ID-specific runtime branching
+  - weather Golden policy remains explicitly isolated
+  - plans retain Trip, revision, assessment, event-version, and fingerprint bindings
+  - two simultaneous events maintain separate assessments, decisions, changes, and timeline entries
+  - a later version replaces the canonical event without creating a duplicate event ID
+  - OutcomeObservation records expected-versus-observed facts without changing Trip or policy
+  - consumer Trip Operations UI supports demo scenarios, manual input, and a readable timeline
+  - Sprint 1, 1.5, and 2 Golden paths remain green
+  - tests, ESLint, production build, and npm run harness:full pass
+quality_gate: full-test
+status: completed

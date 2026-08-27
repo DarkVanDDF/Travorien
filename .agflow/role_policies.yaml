@@ -1,0 +1,33 @@
+schema_version: 1
+hierarchy:
+  root: coordinator
+  roles:
+    coordinator: { parent: null, owns: [scope, routing, handoff] }
+    product-lead: { parent: coordinator, owns: [domain direction, demo scenario] }
+    platform-lead: { parent: coordinator, owns: [harness, configuration] }
+    quality-lead: { parent: coordinator, owns: [review, validation] }
+    application-worker: { parent: product-lead, owns: [domain model, state engine] }
+    frontend-worker: { parent: product-lead, owns: [interface, interaction, accessibility] }
+    data-worker: { parent: product-lead, owns: [mock catalog, supplier seams] }
+    reviewer: { parent: quality-lead, owns: [adversarial review] }
+    validation-runner: { parent: quality-lead, owns: [reproducible gates] }
+policies:
+  application-worker:
+    kind: worker
+    domain_globs: ["app/domain.ts", "app/trip-engine.ts", "tests/**"]
+    allowed_write_paths: ["app/", "tests/", ".agflow/tasks/"]
+  frontend-worker:
+    kind: worker
+    domain_globs: ["app/*.tsx", "app/globals.css", "public/**"]
+    allowed_write_paths: ["app/", "public/", "tests/", ".agflow/tasks/"]
+  data-worker:
+    kind: worker
+    domain_globs: ["app/data/**"]
+    allowed_write_paths: ["app/data/", "tests/", ".agflow/tasks/"]
+  reviewer:
+    kind: reviewer
+    read_only: true
+    outputs: [".agflow/tasks/{task_id}/review_report.json"]
+  validation-runner:
+    kind: validation
+    allowed_write_paths: [".agflow/tasks/", ".agflow/runtime/"]

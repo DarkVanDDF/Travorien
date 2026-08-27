@@ -1,0 +1,16 @@
+version: "1.0"
+profiles:
+  - name: framework-gate
+    description: Project contract and deterministic state tests.
+    failure_severity: critical
+    commands:
+      - name: project-check
+        command: npm run harness:check
+        cwd: .
+  - name: full-test
+    description: Contract, tests, strict TypeScript, lint, and production build.
+    failure_severity: critical
+    commands:
+      - name: full-project-gate
+        command: npm run harness:full
+        cwd: .

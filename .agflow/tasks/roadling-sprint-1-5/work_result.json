@@ -1,0 +1,52 @@
+{
+  "task_id": "roadling-sprint-1-5",
+  "status": "completed",
+  "changed_files": [
+    ".env.example",
+    ".gitignore",
+    "AGENTS.md",
+    "HARNESS.md",
+    "app/RoadTripApp.tsx",
+    "app/globals.css",
+    "app/layout.tsx",
+    "app/domain.ts",
+    "app/intent-engine.ts",
+    "app/trip-engine.ts",
+    "app/data/mock-data.ts",
+    "app/ai/gemini-core.ts",
+    "app/ai/gemini-server.ts",
+    "app/api/intent/route.ts",
+    "app/api/copilot/route.ts",
+    "docs/PRODUCT.md",
+    "docs/DOMAIN_MODEL.md",
+    "docs/ARCHITECTURE.md",
+    "docs/DEMO_SCENARIO.md",
+    "docs/DECISIONS.md",
+    "docs/GEMINI_INTEGRATION.md",
+    "public/og.png",
+    "scripts/harness-validate.mjs",
+    "tests/intent-engine.test.mjs",
+    "tests/gemini-server.test.mjs",
+    "package.json"
+  ],
+  "verification": [
+    "npm run harness:full — passed",
+    "12 node tests — passed",
+    "ESLint — passed with zero warnings",
+    "Vinext production build — passed",
+    "GET / — 200 on local dev server",
+    "Missing-key probes for /api/intent and /api/copilot — safe 503 AI_NOT_CONFIGURED",
+    "Credentialed Gemini base interaction — HTTP 200 completed",
+    "Credentialed intent schema — HTTP 200, 15 structured fields parsed",
+    "Credentialed Copilot schema — HTTP 200, validated 180-minute command parsed"
+  ],
+  "known_risks": [
+    "Codex's sandbox blocks outbound network access from its Node child process, so the same-origin route must be re-probed from a normally launched local server even though both exact Gemini payloads passed live upstream validation.",
+    "Destination photography is externally hosted and therefore depends on network availability.",
+    "Yunnan is the only generated itinerary; Sichuan, Hainan, and Xinjiang remain discovery previews."
+  ],
+  "scope_deviations": [
+    "Used the official Gemini Interactions REST API instead of @google/genai because repository policy did not authorize installing a dependency.",
+    "Added a capacity-only fallback from gemini-3.7-flash to gemini-3.6-flash after the live provider temporarily returned a high-demand 500."
+  ]
+}
